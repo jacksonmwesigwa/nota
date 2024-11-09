@@ -1,5 +1,5 @@
 <x-layout>
-    <section>
+    <section class="main-section">
         <form action="{{ route('note.update', $note) }}" method="POST" class="crud-form">
             @csrf
             @method('PUT')

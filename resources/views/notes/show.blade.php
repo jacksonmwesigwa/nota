@@ -1,5 +1,5 @@
 <x-layout>
-    <section>
+    <section class="main-section">
         <div class="full-note-head">
             <x-section-heading>{{ $note->title }}</x-section-heading>
             <div class="show-note-buttons">

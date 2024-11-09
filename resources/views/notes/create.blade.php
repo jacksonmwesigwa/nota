@@ -1,5 +1,5 @@
 <x-layout>
-    <section>
+    <section class="main-section">
         <form action="{{ route('note.store') }}" method="POST" class="crud-form">
             @csrf
             <div class="full-note-head">

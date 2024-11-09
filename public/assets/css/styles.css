@@ -15,10 +15,14 @@ body{
 header{
     padding: 0.4rem 5rem;
     display: flex;
+    top: 0;
+    left: 0;
     align-items: center;
     justify-content: space-between;
     background-color: rgb(15, 5, 40);
     border-bottom: 0.01rem solid  rgb(41, 20, 94);
+    width: 100%;
+    position: fixed;
 }
 header nav{
     list-style: none;
@@ -63,6 +67,9 @@ header .auth-buttons .signup-button:hover{
 }
 header .auth-buttons .login-button:hover{
     color: var(--main-blue-200);
+}
+.main-section{
+    margin-top: 6rem
 }
 .section-heading{
     margin-top: 1rem;

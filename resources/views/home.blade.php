@@ -1,5 +1,5 @@
 <x-layout>
-    <section style="margin-top: 1.5rem">
+    <section class="main-section">
         <div class="home-notes-head">
             <div>
                 <h1>Your Notes</h1>
@@ -10,9 +10,15 @@
             </div>
         </div>
         @empty($usernotes)
-            <div class="home-error">
-                <h4>No notes Found, write something or please Login.</h4>
-            </div>
+            @auth
+                <div class="home-error">
+                    <h4>No notes Found, write something.</h4>
+                </div>
+            @else
+                <div class="home-error">
+                    <h4>Please Login to save notes.</h4>
+                </div>
+            @endauth
         @else
             <x-notes-container style="margin-bottom: 0rem;">
 

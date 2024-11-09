@@ -1,5 +1,5 @@
 <x-layout>
-    <section>
+    <section class="main-section">
         <x-section-heading>Public Notes</x-section-heading>
         <x-notes-container>
             @foreach ($notes as $note)

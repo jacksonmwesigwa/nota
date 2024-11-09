@@ -1,9 +1,9 @@
 <x-layout>
-    <section>
+    <section class="main-section">
         <x-section-heading>My Notes</x-section-heading>
         @empty($notes)
             <div class="home-error">
-                <h4>No notes Found, write something or please Login.</h4>
+                <h4>No notes Found, write something.</h4>
             </div>
         @else
             <x-notes-container>

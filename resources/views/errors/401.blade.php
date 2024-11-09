@@ -1,5 +1,5 @@
 <x-layout>
-    <section>
+    <section class="main-section">
         <x-section-heading>Please first Sign Up or Login</x-section-heading>
         <div class="error-page-container">
             <div class="note-buttons">
