@@ -3,12 +3,17 @@
         <div class="full-note-head">
             <x-section-heading>{{ $note->title }}</x-section-heading>
             <div class="show-note-buttons">
-                <a href="{{ route('note.edit', $note) }}" class="edit-button">Edit</a>
-                <form action="{{ route('note.destroy', $note) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="delete-button">Delete</button>
-                </form>
+                @if ($note->user['id'] == $user)
+                    <a href="{{ route('note.edit', $note) }}" class="edit-button">Edit</a>
+                    <form action="{{ route('note.destroy', $note) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="delete-button">Delete</button>
+                    </form>
+                @else
+                    <h5 style="font-weight: 400; margin-right:1rem;">By {{ $note->user->name }}</h5>
+                    <a href="{{ route('note.index') }}" class="delete-button">Back</a>
+                @endif
             </div>
         </div>
 

@@ -1,3 +1,3 @@
-<section class="notes-container">
+<section class="notes-container" {{ $attributes }}>
     {{ $slot }}
 </section>

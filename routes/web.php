@@ -9,7 +9,7 @@ use App\Http\Controllers\RegisteredUserController;
 Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/public', [MainController::class, 'public_index'])->name('public');
 Route::get('/notes', [NoteController::class, 'index'])->name('note.index');
-Route::get('/note/create', [NoteController::class, 'create'])->name('note.create')->middleware('auth');
+Route::get('/note/create', [NoteController::class, 'create'])->name('note.create');
 Route::post('/note', [NoteController::class, 'store'])->name('note.store')->middleware('auth');
 Route::get('/note/{note}', [NoteController::class, 'show'])->name('note.show');
 Route::get('/note/{note}/edit', [NoteController::class, 'edit'])->name('note.edit')->middleware('auth');

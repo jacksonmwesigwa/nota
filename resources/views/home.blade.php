@@ -1,8 +1,62 @@
 <x-layout>
+    <section style="margin-top: 1.5rem">
+        <div class="home-notes-head">
+            <div>
+                <h1>Your Notes</h1>
+            </div>
+            <div class="show-note-buttons">
+                <a href="{{ route('note.create') }}" class="edit-button">New Note</a>
+                <a href="{{ route('note.index') }}" class="delete-button">View All</a>
+            </div>
+        </div>
+        @empty($usernotes)
+            <div class="home-error">
+                <h4>No notes Found, write something or please Login.</h4>
+            </div>
+        @else
+            <x-notes-container style="margin-bottom: 0rem;">
+
+                @foreach ($usernotes as $note)
+                    <x-note-card class="card">
+                        <h5 style="margin-bottom: 0.5rem;" class="note-date">{{ $note->created_at }}</h5>
+                        <h5 style="margin-bottom: 0.5rem;" class="note-title">{{ $note->title }}</h5>
+                        <p class="note-body">{{ Str::limit($note->body, 200) }}</p>
+                        <div class="card-bottom">
+                            <div class="author">
+                                @if ($note->user['id'] == $user)
+                                    <h5>You</h5>
+                                @else
+                                    <h5>{{ Str::limit($note->user['name'], 20, '', preserveWords: true) }}</h5>
+                                @endif
+                            </div>
+
+                            <div class="note-buttons">
+                                @if ($note->user['id'] == $user)
+                                    <a href="{{ route('note.show', $note) }}" class="edit-button">View</a>
+                                    <a href="{{ route('note.edit', $note) }}" class="delete-button">Edit</a>
+                                @else
+                                    <a href="{{ route('note.show', $note) }}" class="delete-button">View</a>
+                                @endif
+                            </div>
+                        </div>
+                    </x-note-card>
+                @endforeach
+            @endempty
+
+        </x-notes-container>
+    </section>
     <section>
-        <x-section-heading><a href="{{ route('note.create') }}" class="new-note-button">New Note</a></x-section-heading>
+        <div class="home-notes-head">
+            <div>
+                <h1>Public Notes</h1>
+            </div>
+            <div class="show-note-buttons">
+                <a href="{{ route('note.create') }}" class="edit-button">New Note</a>
+                <a href="{{ route('public') }}" class="delete-button">View All</a>
+            </div>
+        </div>
         <x-notes-container>
-            @foreach ($notes as $note)
+            @foreach ($publicnotes as $note)
                 <x-note-card class="card">
                     <h5 style="margin-bottom: 0.5rem;" class="note-date">{{ $note->created_at }}</h5>
                     <h5 style="margin-bottom: 0.5rem;" class="note-title">{{ $note->title }}</h5>
@@ -17,8 +71,12 @@
                         </div>
 
                         <div class="note-buttons">
-                            <a href="{{ route('note.show', $note) }}" class="edit-button">View</a>
-                            <a href="{{ route('note.edit', $note) }}" class="delete-button">Edit</a>
+                            @if ($note->user['id'] == $user)
+                                <a href="{{ route('note.show', $note) }}" class="edit-button">View</a>
+                                <a href="{{ route('note.edit', $note) }}" class="delete-button">Edit</a>
+                            @else
+                                <a href="{{ route('note.show', $note) }}" class="delete-button">View</a>
+                            @endif
                         </div>
                     </div>
                 </x-note-card>

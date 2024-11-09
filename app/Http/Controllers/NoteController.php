@@ -19,7 +19,7 @@ class NoteController extends Controller
             abort('401');
         }
         $user = !empty(request()->user()->id) ? request()->user()->id : 0;
-        $notes =  User::find($user)->notes()->latest()->get();
+        $notes =  User::find($user)->notes()->latest()->paginate(15);
 
         return view('notes.index', [
             'notes' => $notes,
@@ -33,6 +33,9 @@ class NoteController extends Controller
     public function create()
     {
         //
+        if (empty(request()->user()->id)) {
+            abort('401');
+        }
         return view('notes.create');
     }
 
@@ -41,9 +44,12 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //`
+        //
+        if (empty(request()->user()->id)) {
+            abort('401');
+        }
         $validatedinput = request()->validate([
-            'title' => 'min:3',
+            'title' => 'min:3|max:30',
             'body' => 'min:3',
             'is_public' => 'boolean|nullable',
         ]);
@@ -61,7 +67,8 @@ class NoteController extends Controller
     public function show(Note $note)
     {
         //
-        return view('notes.show', ['note' => $note]);
+        $user = !empty(request()->user()->id) ? request()->user()->id : 0;
+        return view('notes.show', ['note' => $note, 'user' => $user]);
     }
 
     /**
@@ -87,7 +94,7 @@ class NoteController extends Controller
         }
 
         $validatedinput = request()->validate([
-            'title' => 'bail|min:3',
+            'title' => 'bail|min:3|max:30',
             'body' => 'min:3',
             'is_public' => 'boolean|nullable',
         ]);

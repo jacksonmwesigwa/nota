@@ -17,8 +17,12 @@
                         </div>
 
                         <div class="note-buttons">
-                            <a href="{{ route('note.show', $note) }}" class="edit-button">View</a>
-                            <a href="{{ route('note.edit', $note) }}" class="delete-button">Edit</a>
+                            @if ($note->user['id'] == $user)
+                                <a href="{{ route('note.show', $note) }}" class="edit-button">View</a>
+                                <a href="{{ route('note.edit', $note) }}" class="delete-button">Edit</a>
+                            @else
+                                <a href="{{ route('note.show', $note) }}" class="delete-button">View</a>
+                            @endif
                         </div>
                     </div>
                 </x-note-card>
