@@ -19,7 +19,7 @@
         </div>
     @else
         <div class="auth-buttons">
-            <a href="{{ route('session.login') }}" class="login-button">Login</a>
+            <a href="{{ route('login') }}" class="login-button">Login</a>
             <a href="{{ route('user.create') }}" class="signup-button">Sign Up</a>
         </div>
     @endauth

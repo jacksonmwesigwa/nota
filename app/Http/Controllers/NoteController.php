@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Note;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NoteController extends Controller
 {
@@ -13,10 +15,15 @@ class NoteController extends Controller
     public function index()
     {
         //
-        $notes = Note::query()->latest()->get();
+        if (empty(request()->user()->id)) {
+            abort('401');
+        }
+        $user = !empty(request()->user()->id) ? request()->user()->id : 0;
+        $notes =  User::find($user)->notes()->latest()->get();
 
         return view('notes.index', [
-            'notes' => $notes
+            'notes' => $notes,
+            'user' => $user
         ]);
     }
 
@@ -34,12 +41,13 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //`
         $validatedinput = request()->validate([
             'title' => 'min:3',
             'body' => 'min:3',
             'is_public' => 'boolean|nullable',
         ]);
+        $validatedinput['user_id'] = Auth::user()->id;
         $validatedinput['is_public'] = $request->boolean('is_public');
 
         $note = Note::create($validatedinput);
@@ -62,6 +70,9 @@ class NoteController extends Controller
     public function edit(Note $note)
     {
         //
+        if ($note->user_id !== request()->user()->id) {
+            abort('403');
+        }
         return view('notes.edit', ['note' => $note]);
     }
 
@@ -71,6 +82,10 @@ class NoteController extends Controller
     public function update(Request $request, Note $note)
     {
         //
+        if ($note->user_id !== request()->user()->id) {
+            abort('403');
+        }
+
         $validatedinput = request()->validate([
             'title' => 'bail|min:3',
             'body' => 'min:3',
@@ -86,6 +101,10 @@ class NoteController extends Controller
      */
     public function destroy(Note $note)
     {
+        if ($note->user_id !== request()->user()->id) {
+            abort('403');
+        }
+
         $note->delete();
         return to_route('note.index')->with('message', 'Note deleted successfully');
     }

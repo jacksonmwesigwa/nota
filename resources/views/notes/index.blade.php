@@ -9,7 +9,11 @@
 
                     <div class="card-bottom">
                         <div class="author">
-                            <h5>Jackson Mwesigwa</h5>
+                            @if ($note->user['id'] == $user)
+                                <h5>You</h5>
+                            @else
+                                <h5>{{ Str::limit($note->user['name'], 20, '', preserveWords: true) }}</h5>
+                            @endif
                         </div>
 
                         <div class="note-buttons">

@@ -3,7 +3,7 @@
         <x-section-heading>Login</x-section-heading>
         <div class="auth-wrapper">
             <div class="auth-form">
-                <form action="{{ route('session.login') }}" method="POST">
+                <form action="{{ route('login') }}" method="POST">
                     @csrf
                     @method('POST')
                     <div class="auth-form-field">
