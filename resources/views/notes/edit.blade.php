@@ -4,7 +4,7 @@
             @csrf
             @method('PUT')
             <div class="full-note-head">
-                <x-section-heading>Edit Note</x-section-heading>
+                <x-section-heading style="margin-top: 0;">Edit Note</x-section-heading>
                 <div class="imp-buttons">
                     <a href="{{ route('note.show', $note) }}" class="edit-button">Cancel</a>
                     <button class="delete-button">Save</button>
@@ -18,16 +18,19 @@
                     <input type="checkbox" id="is_public" name="is_public" class="public-switch-input" value="1"
                         {{ $note->is_public ? 'checked' : '' }}>
                     <label for="is_public" class="public-switch-label">Toggle</label>
+                    <div>
 
-                    @if ($errors->has('title'))
-                        @error('title')
-                            <p class="errors">{{ $message }}</p>
-                        @enderror
-                    @elseif ($errors->has('body'))
-                        @error('body')
-                            <p class="errors">{{ $message }}</p>
-                        @enderror
-                    @endif
+                        @if ($errors->has('title'))
+                            @error('title')
+                                <p class="errors">{{ $message }}</p>
+                            @enderror
+                        @elseif ($errors->has('body'))
+                            @error('body')
+                                <p class="errors">{{ $message }}</p>
+                            @enderror
+                        @endif
+                    </div>
+
 
 
                 </div>

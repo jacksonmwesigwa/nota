@@ -77,15 +77,12 @@ header .auth-buttons .login-button:hover{
 }
 .notes-container{
     padding: 1rem 5rem;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    gap: 2rem;
     margin-bottom: 3rem;
 }
 .note-card{
-    width: 330px;
     padding: 1.5rem;
-    margin-left: 2rem;
-    margin-bottom: 2rem;
     background-color: rgb(15, 5, 40);
     border: 0.01rem solid  rgb(41, 20, 94);
     display: flex;
@@ -143,13 +140,13 @@ header .auth-buttons .login-button:hover{
     flex-direction: column;
 }
 .full-note-head{
-    padding:1rem 5rem;
+    padding:1rem 5rem 1rem 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .home-notes-head{
-    padding:1rem 7rem;
+    padding:1rem 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -188,6 +185,7 @@ header .auth-buttons .login-button:hover{
 }
 .crud-title-label{
     font-weight: 500;
+    margin-right: 0.6rem;
 }
 .crud-title-input{
     font-family: Poppins;
@@ -338,4 +336,69 @@ footer p a:hover{
 }
 .home-error h4{
     font-weight: 400;
+}
+.icons{
+    margin-right: 0.2rem;
+}
+.icons2{
+    margin-right: 0.4rem;
+}
+
+@media (min-width: 1024px) {
+    .notes-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .notes-container{
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem 3rem;
+    }
+    .home-notes-head{
+        padding:1rem 3rem;
+    }
+    .full-note-head{
+        padding: 1rem 3rem 1.5rem 3rem;
+    }
+    .auth-wrapper{
+        padding: 0rem 3rem;
+    }
+    .note-wrapper{
+        padding: 0rem 3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .notes-container{
+        grid-template-columns: 1fr;
+        padding: 1rem 1.5rem;
+    }
+    .home-notes-head{
+        padding:1rem 1.5rem;
+    }
+    .auth-wrapper{
+        padding: 0rem 1.5rem;
+    }
+    .note-wrapper{
+        padding: 0rem 1.5rem;
+    }
+    .full-note-head{
+        padding: 1rem 1.5rem 1.5rem 1.5rem;
+    }
+}
+
+@media (max-width: 500px){
+    .error-page-text{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 375px){
+    .error-page-text{
+        font-size: 0.8rem;
+    }
+    footer p{
+        font-size: 0.7rem;
+    }
 }

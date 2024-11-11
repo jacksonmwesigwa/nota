@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        Note::factory(10)->create([
+        Note::factory(100)->create([
             'user_id' => $user->id
         ]);
 
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
                 'password' => 'password'
             ]
         );
-        Note::factory(10)->create([
+        Note::factory(100)->create([
             'user_id' => $user2->id
         ]);
 
@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
                 'password' => 'password'
             ]
         );
-        Note::factory(10)->create([
+        Note::factory(100)->create([
             'user_id' => $user3->id
         ]);
     }

@@ -11,7 +11,9 @@
                         <button class="delete-button">Delete</button>
                     </form>
                 @else
-                    <h5 style="font-weight: 400; margin-right:1rem;">By {{ $note->user->name }}</h5>
+                    <h5 style="font-weight: 400; margin-right:1rem;" class="font-normal text-sm "><i
+                            class="icons fa-solid fa-user"></i>
+                        {{ $note->user->name }}</h5>
                     <a href="{{ route('note.index') }}" class="delete-button">Back</a>
                 @endif
             </div>
@@ -21,8 +23,8 @@
             <div class="full-note">
                 {{ $note->body }}
                 <div class="note-info">
-                    <h3>Created: {{ $note->created_at }}</h3>
-                    <h3>Updated: {{ $note->updated_at }}</h3>
+                    <h3>Created: {{ $note->created_at->format('d M Y, h:i A') }}</h3>
+                    <h3>Updated: {{ $note->updated_at->format('d M Y, h:i A') }}</h3>
                 </div>
             </div>
 

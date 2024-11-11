@@ -1,3 +1,421 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root{
+    --main-blue : rgb(24,116,247);
+    --main-blue-200 : rgb(59, 139, 251);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Poppins, "Inter 24pt", Roboto,'Open Sans', sans-serif;
+    background-color: rgb(13, 11, 17);
+    color: white;
+}
+header{
+    padding: 0.4rem 5rem;
+    display: flex;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(15, 5, 40);
+    border-bottom: 0.01rem solid  rgb(41, 20, 94);
+    width: 100%;
+    position: fixed;
+}
+header nav{
+    list-style: none;
+    display: flex;
+}
+header nav li{
+    margin-left: 4rem;
+}
+header nav li a{
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+
+}
+header .auth-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header .auth-buttons a{
+    font-weight: 500;
+    text-decoration: none;
+    color:white;
+}
+header nav li a:hover{
+    color: var(--main-blue-200);
+}
+header .auth-buttons .signup-button{
+    font-family: Poppins;
+    font-weight: 500;
+    color: white;
+    padding: 0.6rem 1.3rem;
+    background-color: var(--main-blue);
+    margin-left: 1.2rem;
+    border-radius:2rem;
+    transition: 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+header .auth-buttons .signup-button:hover{
+    background-color: var(--main-blue-200);
+}
+header .auth-buttons .login-button:hover{
+    color: var(--main-blue-200);
+}
+.main-section{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6rem;
+    max-width:1500px;
+}
+.section-heading{
+    margin-top: 1rem;
+    text-align: center;
+}
+.notes-container{
+    padding: 1rem 5rem;
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+.note-card{
+    padding: 1.5rem;
+    background-color: #0f0528;
+    border: 0.01rem solid  #29145e;
+    display: flex;
+    flex-direction: column;
+}
+.note-title{
+    font-size: 1rem;
+    font-weight: 600;
+    color:rgb(110, 110, 234);
+}
+.note-body{
+    margin-bottom: 0.5rem;
+}
+.note-buttons{
+    text-align: end;
+    margin-top: auto;
+}
+.show-note-buttons{
+    display: flex;
+    align-items: center;
+    text-align: end;
+}
+.edit-button{
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+ .delete-button{
+    color: white;
+    padding: 0.35rem 0.9rem;
+    margin-left: 0.6rem;
+    background-color: var(--main-blue);
+    border-radius:2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: none;
+}
+ .edit-button:hover{
+    color: var(--main-blue-200);
+}
+ .delete-button:hover{
+    background-color: var(--main-blue-200);
+}
+.note-wrapper{
+    padding:0 5rem;
+}
+.full-note{
+    padding: 1.5rem;
+    margin-bottom: 6rem;
+    margin-top: 1rem;
+    background-color: rgb(15, 5, 40);
+    border: 0.01rem solid  rgb(41, 20, 94);
+    display: flex;
+    flex-direction: column;
+}
+.full-note-head{
+    padding:1rem 5rem 1rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.home-notes-head{
+    padding:1rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.note-info{
+    margin-top: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.note-info h3{
+    font-size: 0.9rem;
+    font-weight: 500;
+    color:rgb(110, 110, 234);
+}
+.crud-form {
+    margin-bottom: 4rem;
+}
+.crud-form textarea{
+    font-family: Poppins;
+    font-size: 1rem;
+    color: white;
+    width: 100%;
+    height: 500px;
+    resize: none;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    background-color: rgb(15, 5, 40);
+    border: 0.01rem solid  rgb(41, 20, 94);
+}
+.crud-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.crud-title-label{
+    font-weight: 500;
+    margin-right: 0.6rem;
+}
+.crud-title-input{
+    font-family: Poppins;
+    color: white;
+    background-color: rgb(15, 5, 40);
+    border: 0.01rem solid  rgb(41, 20, 94);
+    padding: 0.6rem;
+    width: 96%;
+}
+.new-note-button{
+    font-weight: 500;
+    color: white;
+    padding: 0.4rem 1rem;
+    margin-left: 0.2rem;
+    background-color: var(--main-blue);
+    border-radius:2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.new-note-button:hover{
+    background-color: var(--main-blue-200);
+}
+.public_switch{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.public_switch .crud-title-label{
+    margin-right: 2rem;
+}
+.public_switch input[type=checkbox]{
+    height: 0;
+	width: 0;
+	visibility: hidden;
+}
+.public_switch label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 50px;
+	height: 30px;
+	background: grey;
+	display: block;
+	border-radius: 50px;
+	position: relative;
+}
+.public_switch label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border-radius: 40px;
+	transition: 0.3s;
+}
+.public_switch input:checked + label {
+	background: var(--main-blue);
+}
+
+.public_switch input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+.public_switch label:active:after {
+	width: 20px;
+}
+.card-bottom{
+    margin-top: auto;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+.author h5{
+    font-weight: 300;
+}
+.note-date{
+    font-weight: 300;
+}
+.errors{
+    font-size: 0.8rem;
+    color: red;
+    margin-left: 4rem;
+}
+.auth-wrapper{
+    padding: 0rem 5rem;
+}
+.auth-form-field{
+    margin-top: 1rem;
+}
+.auth-form-input{
+    font-family: Poppins;
+    color: white;
+    background-color: rgb(15, 5, 40);
+    border: 0.01rem solid  rgb(41, 20, 94);
+    padding: 0.6rem;
+    width: 96%;
+}
+.auth-wrapper .imp-buttons{
+    margin-top: 1rem;
+}
+.auth-errors{
+    font-size: 0.8rem;
+    color: red;
+    margin-top: 0.2rem;
+}
+.error-page-container{
+    display:flex; 
+    margin-top:2rem; 
+    justify-content: center; 
+    align-items: center;
+}
+.error-page-text{
+    font-weight: 400;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    border-top: 0.01rem solid  rgb(41, 20, 94);
+    background-color: rgba(15, 5, 40, 0.9);
+    margin-top: auto;
+}
+footer p{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+footer p a{
+    text-decoration: none;
+    color:rgb(110, 110, 234);
+}
+footer p a:hover{
+    color:var(--main-blue-200);
+}
+.home-error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding:1rem 5rem;
+}
+.home-error h4{
+    font-weight: 400;
+}
+.icons{
+    margin-right: 0.2rem;
+}
+.icons2{
+    margin-right: 0.4rem;
+}
+.pagination{
+    padding:0rem 5rem;
+}
+
+@media (min-width: 1024px) {
+    .notes-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .notes-container{
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem 3rem;
+    }
+    .home-notes-head{
+        padding:1rem 3rem;
+    }
+    .full-note-head{
+        padding: 1rem 3rem 1.5rem 3rem;
+    }
+    .auth-wrapper{
+        padding: 0rem 3rem;
+    }
+    .note-wrapper{
+        padding: 0rem 3rem;
+    }
+    .pagination{
+        padding:0rem 3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .notes-container{
+        grid-template-columns: 1fr;
+        padding: 1rem 1.5rem;
+    }
+    .home-notes-head{
+        padding:1rem 1.5rem;
+    }
+    .auth-wrapper{
+        padding: 0rem 1.5rem;
+    }
+    .note-wrapper{
+        padding: 0rem 1.5rem;
+    }
+    .full-note-head{
+        padding: 1rem 1.5rem 1.5rem 1.5rem;
+    }
+    .pagination{
+        padding:0rem 1.5rem;
+    }
+}
+
+@media (max-width: 500px){
+    .error-page-text{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 375px){
+    .error-page-text{
+        font-size: 0.8rem;
+    }
+    footer p{
+        font-size: 0.7rem;
+    }
+}

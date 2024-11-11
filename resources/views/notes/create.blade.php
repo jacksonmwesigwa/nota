@@ -3,7 +3,7 @@
         <form action="{{ route('note.store') }}" method="POST" class="crud-form">
             @csrf
             <div class="full-note-head">
-                <x-section-heading>Create Note</x-section-heading>
+                <x-section-heading style="margin-top: 0;">Create Note</x-section-heading>
                 <div class="imp-buttons">
                     <a href="{{ route('note.index') }}" class="edit-button">Cancel</a>
                     <button class="delete-button">Save</button>

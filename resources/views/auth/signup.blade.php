@@ -1,5 +1,5 @@
 <x-layout>
-    <section>
+    <section class="main-section">
         <x-section-heading>Signup</x-section-heading>
         <div class="auth-wrapper">
             <div class="auth-form">

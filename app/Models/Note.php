@@ -23,4 +23,15 @@ class Note extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    //Get formatted date
+    public function getCreatedAtHumanAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
+    public function getUpdatedAtHumanAttribute()
+    {
+        return $this->updated_at->diffForHumans();
+    }
 }

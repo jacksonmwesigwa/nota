@@ -19,8 +19,8 @@ class NoteController extends Controller
             abort('401');
         }
         $user = !empty(request()->user()->id) ? request()->user()->id : 0;
-        $notes =  User::find($user)->notes()->latest()->paginate(15);
-
+        $usernotes =  User::find($user)->notes()->latest()->paginate(15);
+        $notes = $usernotes->count() > 0 ? $usernotes : NULL;
         return view('notes.index', [
             'notes' => $notes,
             'user' => $user
