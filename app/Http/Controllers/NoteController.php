@@ -58,7 +58,7 @@ class NoteController extends Controller
 
         $note = Note::create($validatedinput);
 
-        return to_route('note.show', $note);
+        return to_route('note.show', $note)->with(['message_title' => 'Note Created Successfully', 'message_content' => 'Your new note has been saved and is now available in your notes list.']);
     }
 
     /**
@@ -72,14 +72,24 @@ class NoteController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     */
+    public function author(User $author)
+    {
+        //
+        $notes = $author->notes()->where('is_public', true)->latest()->paginate(15);
+        return view('notes.author', ['notes' => $notes, 'author' => $author]);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Note $note)
     {
-        //
-        if ($note->user_id !== request()->user()->id) {
+        if ($note->user->isNot(Auth::user())) {
             abort('403');
         }
+
         return view('notes.edit', ['note' => $note]);
     }
 

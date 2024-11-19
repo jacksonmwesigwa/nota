@@ -7,7 +7,7 @@
                     @csrf
                     @method('POST')
                     <div class="auth-form-field">
-                        <label for="name" class="auth-form-label">Email:</label>
+                        <label for="name" class="auth-form-label">Email:</label> <br>
                         <input type="email" name="email" class="auth-form-input" required>
                         @error('email')
                             <p class="auth-errors">{{ $message }}</p>

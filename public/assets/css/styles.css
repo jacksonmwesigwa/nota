@@ -367,6 +367,9 @@ footer p a:hover{
     .note-wrapper{
         padding: 0rem 3rem;
     }
+    header nav li{
+        margin-left: 3rem;
+    }
 }
 
 @media (max-width: 767px) {

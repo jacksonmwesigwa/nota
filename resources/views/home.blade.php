@@ -2,11 +2,11 @@
     <section class="main-section">
         <div class="home-notes-head">
             <div>
-                <h1 class="font-bold text-xl">Your Notes</h1>
+                <h1 class="font-bold text-sm sm:text-xl">Your Notes</h1>
             </div>
             <div class="show-note-buttons">
-                <a href="{{ route('note.create') }}" class="edit-button">New Note</a>
-                <a href="{{ route('note.index') }}" class="delete-button">View All</a>
+                <a href="{{ route('note.create') }}" class="edit-button text-sm sm:text-md">New Note</a>
+                <a href="{{ route('note.index') }}" class="delete-button text-sm sm:text-md">View All</a>
             </div>
         </div>
         @empty($usernotes)
@@ -30,10 +30,10 @@
 
 
     </section>
-    <section>
+    <section class="main-section" style="margin-top: 0rem">
         <div class="home-notes-head">
             <div>
-                <h1 class="font-bold text-xl">Public Notes</h1>
+                <h1 class="font-bold text-sm sm:text-xl">Public Notes</h1>
             </div>
             <div class="show-note-buttons">
                 <a href="{{ route('note.create') }}" class="edit-button">New Note</a>
