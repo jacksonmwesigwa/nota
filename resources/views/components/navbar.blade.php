@@ -50,9 +50,9 @@
                             class="block bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-none dark:bg-[#0f0528] dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white">Write
                             Note</a>
                     </li>
-                    <li><a href="{{ route('public') }}"
-                            class="block bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-none dark:bg-[#0f0528] dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white">Public
-                            Notes</a>
+                    <li><a href="{{ route('about') }}"
+                            class="block bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-none dark:bg-[#0f0528] dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white">About
+                            Nota</a>
                     </li>
                     <form action="{{ route('session.destroy') }}" method="POST">
                         @csrf
@@ -75,6 +75,10 @@
                     <li><a href="{{ route('note.create') }}"
                             class="block bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-none dark:bg-[#0f0528] dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white">Write
                             Note</a>
+                    </li>
+                    <li><a href="{{ route('about') }}"
+                            class="block bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-none dark:bg-[#0f0528] dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white">About
+                            Nota</a>
                     </li>
                     <li><a href="{{ route('user.create') }}"
                             class="block bg-neutral-50 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900 focus-visible:bg-neutral-900/10 focus-visible:text-neutral-900 focus-visible:outline-none dark:bg-[#0f0528] dark:text-neutral-300 dark:hover:bg-neutral-50/5 dark:hover:text-white dark:focus-visible:bg-neutral-50/10 dark:focus-visible:text-white">Sign
@@ -136,7 +140,7 @@
             <li class="p-2"><a href="{{ route('note.create') }}"
                     class="{{ request()->is('note/create') ? 'font-semibold w-full text-neutral-400 focus:underline dark:text-neutral-100' : 'w-full text-neutral-600 focus:underline dark:text-neutral-300' }}">Write
                     Note</a></li>
-            <li class="p-2"><a href="{{ route('public') }}"
+            <li class="p-2"><a href="{{ route('about') }}"
                     class="{{ request()->is('about') ? 'font-semibold w-full text-neutral-400 focus:underline dark:text-neutral-100' : 'w-full text-neutral-600 focus:underline dark:text-neutral-300' }}">About
                     Nota</a></li>
             <!-- CTA Button -->
@@ -173,6 +177,9 @@
             <li class="p-2"><a href="{{ route('note.create') }}"
                     class="{{ request()->is('note/create') ? 'font-semibold w-full text-neutral-400 focus:underline dark:text-neutral-100' : 'w-full text-neutral-600 focus:underline dark:text-neutral-300' }}">Write
                     Note</a></li>
+            <li class="p-2"><a href="{{ route('about') }}"
+                    class="{{ request()->is('about') ? 'font-semibold w-full text-neutral-400 focus:underline dark:text-neutral-100' : 'w-full text-neutral-600 focus:underline dark:text-neutral-300' }}">About
+                    Nota</a></li>
             <li class="p-2"><a href="{{ route('user.create') }}"
                     class="{{ request()->is('register') ? 'font-semibold w-full text-neutral-400 focus:underline dark:text-neutral-100' : 'w-full text-neutral-600 focus:underline dark:text-neutral-300' }}">Sign
                     Up</a></li>

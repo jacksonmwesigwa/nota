@@ -28,4 +28,9 @@ class MainController extends Controller
         $notes = Note::query()->latest()->where('is_public', true)->paginate(15);
         return view('public', ['notes' => $notes, 'user' => $user]);
     }
+
+    public function about()
+    {
+        return view('about');
+    }
 }

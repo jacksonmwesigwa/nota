@@ -16,14 +16,14 @@
         @empty($usernotes)
             @auth
                 <div class="home-error">
-                    <h4>No notes Found, write something.</h4>
+                    <h4 class="text-xs sm:text-base mb-2">No notes Found, write something.</h4>
                 </div>
                 <div class="text-center mb-4">
                     <a href="{{ route('note.create') }}" class="delete-button">New Note</a>
                 </div>
             @else
                 <div class="home-error">
-                    <h4>Please Login to save notes.</h4>
+                    <h4 class="text-xs sm:text-base mb-2">Please Login to save notes.</h4>
                 </div>
             @endauth
         @else

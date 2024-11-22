@@ -5,7 +5,7 @@
             class="icons fa-solid fa-calendar-days"></i>
         {{ $note->created_at_human }}</p>
     <p style="margin-bottom: 0.5rem;" class="note-title text-sm">{{ $note->title }}</p>
-    <p class="note-body text-sm text-pretty text-neutral-600 dark:text-neutral-100">
+    <p class="note-body text-pretty text-sm text-neutral-600 dark:text-neutral-300">
         {{ Str::limit($note->body, 300) }}</p>
     <div class="card-bottom">
         <div class="author">

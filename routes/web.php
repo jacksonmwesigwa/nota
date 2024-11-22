@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisteredUserController;
 
 Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/public', [MainController::class, 'public_index'])->name('public');
+Route::get('/about', [MainController::class, 'about'])->name('about');
 Route::get('/author/{author}', [NoteController::class, 'author'])->name('note.author');
 Route::get('/notes', [NoteController::class, 'index'])->name('note.index');
 Route::get('/note/create', [NoteController::class, 'create'])->name('note.create');
@@ -23,12 +24,3 @@ Route::post('/register', [RegisteredUserController::class, 'store'])->name('user
 Route::get('/login', [SessionController::class, 'create'])->name('login')->middleware('guest');
 Route::post('/login', [SessionController::class, 'store'])->name('session.store')->middleware('guest');
 Route::delete('/logout', [SessionController::class, 'destroy'])->name('session.destroy')->middleware('auth');
-
-
-Route::get('/alerts', function () {
-    return view('alerts');
-});
-
-Route::get('/alpine', function () {
-    return view('alpine');
-});
