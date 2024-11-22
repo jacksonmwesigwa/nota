@@ -46,7 +46,7 @@ class SessionController extends Controller
 
         request()->session()->regenerate();
 
-        return to_route('index');
+        return to_route('index')->with(['message_title' => 'Successfull Login', 'message_content' => 'You have logged into your account succesfully. Write, Share and Store']);
     }
 
     /**
@@ -80,6 +80,6 @@ class SessionController extends Controller
     {
         //
         Auth::logout();
-        return to_route('index');
+        return to_route('index')->with(['message_title' => 'You Have Logged Out', 'message_content' => 'You have successfully logged out. You must login again to access your notes!.']);
     }
 }

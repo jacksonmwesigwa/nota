@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
         $user = User::create($validatedinputs);
         Auth::login($user);
 
-        return to_route('index');
+        return to_route('index')->with(['message_title' => 'Registered Successfully', 'message_content' => 'Account successfully created! You are now logged in and ready to start writing.']);
     }
 
     /**

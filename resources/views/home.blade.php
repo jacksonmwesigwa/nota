@@ -1,5 +1,9 @@
 <x-layout>
     <section class="main-section">
+        @if (session('message_title'))
+            <x-success-alert :message_title="session('message_title')" :message_content="session('message_content')">
+            </x-success-alert>
+        @endif
         <div class="home-notes-head">
             <div>
                 <h1 class="font-bold text-sm sm:text-xl">Your Notes</h1>
@@ -13,6 +17,9 @@
             @auth
                 <div class="home-error">
                     <h4>No notes Found, write something.</h4>
+                </div>
+                <div class="text-center mb-4">
+                    <a href="{{ route('note.create') }}" class="delete-button">New Note</a>
                 </div>
             @else
                 <div class="home-error">

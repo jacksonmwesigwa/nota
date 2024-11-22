@@ -11,6 +11,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+[x-cloak] {
+    display: none !important;
+}
 body {
     font-family: Poppins, "Inter 24pt", Roboto, "Open Sans", sans-serif;
     background-color: rgb(13, 11, 17);
@@ -347,7 +350,6 @@ footer p a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-bottom: 2rem;
     padding: 1rem 5rem;
 }
 .home-error h4 {

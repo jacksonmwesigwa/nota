@@ -1,5 +1,14 @@
 <x-layout>
     <section class="main-section">
+        @if ($errors->has('title'))
+            @error('title')
+                <x-danger-alert :message=$message></x-danger-alert>
+            @enderror
+        @elseif ($errors->has('body'))
+            @error('body')
+                <x-danger-alert :message=$message></x-danger-alert>
+            @enderror
+        @endif
         <form action="{{ route('note.store') }}" method="POST" class="crud-form">
             @csrf
             <div class="full-note-head">
@@ -17,15 +26,6 @@
                     <p class="crud-title-label">Make Public:</p>
                     <input type="checkbox" id="is_public" name="is_public" class="public-switch-input" value="1">
                     <label for="is_public" class="public-switch-label">Toggle</label>
-                    @if ($errors->has('title'))
-                        @error('title')
-                            <p class="errors">{{ $message }}</p>
-                        @enderror
-                    @elseif ($errors->has('body'))
-                        @error('body')
-                            <p class="errors">{{ $message }}</p>
-                        @enderror
-                    @endif
                 </div>
 
                 <div class="crud-title">

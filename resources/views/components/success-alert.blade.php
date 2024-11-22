@@ -1,8 +1,12 @@
 @props(['message_title', 'message_content'])
-<div x-data="{ alertIsVisible: true }" x-show="alertIsVisible"
-    class="fixed right-5 bottom-20 w-[80%] overflow-hidden rounded-md border border-sky-500 bg-white text-neutral-600 dark:bg-neutral-950 dark:text-neutral-300"
-    role="alert" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
-    x-transition:leave-end="opacity-0 scale-90">
+<div x-cloak x-data="{ alertIsVisible: false }" x-init="setTimeout(() => {
+    alertIsVisible = true;
+    setTimeout(() => alertIsVisible = false, 3000)
+}, 200)" x-show="alertIsVisible"
+    class="fixed right-5 bottom-20 ml-[1rem] overflow-hidden rounded-md border border-sky-500 bg-white text-neutral-600 dark:bg-neutral-950 dark:text-neutral-300"
+    role="alert" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-90"
+    x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
     <div class="flex w-full items-center gap-2 bg-sky-500/10 p-4">
         <div class="bg-sky-500/15 text-sky-500 rounded-full p-1" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-6"

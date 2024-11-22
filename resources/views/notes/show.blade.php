@@ -1,11 +1,10 @@
 <x-layout>
     <section class="main-section">
+        @if (session('message_title'))
+            <x-success-alert :message_title="session('message_title')" :message_content="session('message_content')">
+            </x-success-alert>
+        @endif
         <div class="full-show-note-head">
-
-            @if (session('message_title'))
-                <x-success-alert :message_title="session('message_title')" :message_content="session('message_content')">
-                </x-success-alert>
-            @endif
             <div class="show-note-buttons flex justify-between items-center">
                 @if ($note->user['id'] == $user)
                     <div>

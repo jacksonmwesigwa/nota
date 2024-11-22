@@ -110,7 +110,7 @@ class NoteController extends Controller
         ]);
         $validatedinput['is_public'] = $request->boolean('is_public');
         $note->update($validatedinput);
-        return to_route('note.show', $note)->with('message', 'Note updated successfully');
+        return to_route('note.show', $note)->with(['message_title' => 'Note Updated Successfully', 'message_content' => ' Note updated successfully! Your changes have been saved.']);
     }
 
     /**
@@ -123,6 +123,6 @@ class NoteController extends Controller
         }
 
         $note->delete();
-        return to_route('note.index')->with('message', 'Note deleted successfully');
+        return to_route('note.index')->with(['message_title' => 'Note Deleted Successfully', 'message_content' => 'Note deleted successfully! and is no longer available in your list.']);
     }
 }
