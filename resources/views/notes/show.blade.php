@@ -32,8 +32,7 @@
         <div class="note-wrapper">
             <div class="full-note">
                 <h1 style="margin-top: 0;" class="text-md sm:text-xl mb-4 font-bold">{{ $note->title }}</h1>
-                <p class="text-pretty text-sm text-neutral-600 dark:text-neutral-300">
-                    {{ $note->body }}</p>
+                <pre class="text-pretty text-sm text-neutral-600 dark:text-neutral-300 font-poppins" style="font-family: Poppins;">{{ $note->body }}</pre>
                 <div class="note-info">
                     <h3 class="text-sm">Created: {{ $note->created_at->format('d M Y, h:i A') }}</h3>
                     <h3 class="text-sm">Updated: {{ $note->updated_at->format('d M Y, h:i A') }}</h3>

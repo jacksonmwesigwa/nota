@@ -35,7 +35,7 @@
                     <input type="text" name="title" class="crud-title-input" value="{{ $note->title }}">
                 </div>
 
-                <textarea name="body" id="note" cols="30" rows="10" class="note-wrapper"> {{ $note->body }}</textarea>
+                <textarea name="body" id="note" cols="30" rows="10" class="note-wrapper">{{ $note->body }}</textarea>
 
             </div>
         </form>
